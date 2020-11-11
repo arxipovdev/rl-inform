@@ -1,0 +1,5 @@
+api/bin/
+api/obj/
+api/packages/
+api/riderModule.iml
+api/_ReSharper.Caches/
