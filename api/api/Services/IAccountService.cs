@@ -8,5 +8,7 @@ namespace api.Services
     {
         Task<AuthResult> RegisterAsync(UserRegistrationRequest request);
         Task<AuthResult> LoginAsync(UserLoginRequest request);
+        Task<AuthResult> RefreshTokenAsync(RefreshTokenRequest request);
+        Task<AuthResult> ChangePassword(UpdatePasswordRequest request);
     }
 }

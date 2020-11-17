@@ -35,7 +35,11 @@ namespace api.Controllers.V1
             {
                 return BadRequest(new AuthFailedResponse {Errors = authResponse.Errors});
             }
-            return Ok(new AuthSuccessResponse{Token = authResponse.Token});
+            return Ok(new AuthSuccessResponse
+            {
+                Token = authResponse.Token,
+                RefreshToken = authResponse.RefreshToken
+            });
         }
         
         [HttpPost(ApiRoutes.Account.Login)]
@@ -47,7 +51,50 @@ namespace api.Controllers.V1
             {
                 return BadRequest(new AuthFailedResponse {Errors = authResponse.Errors});
             }
-            return Ok(new AuthSuccessResponse{Token = authResponse.Token});
+            return Ok(new AuthSuccessResponse
+            {
+                Token = authResponse.Token,
+                RefreshToken = authResponse.RefreshToken
+            });
+        }
+        
+        [HttpPost(ApiRoutes.Account.ChangePassword)]
+        public async Task<IActionResult> ChangePassword([FromBody] UpdatePasswordRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState
+                    .Values
+                    .SelectMany(x => x.Errors.Select(e => e.ErrorMessage));
+                return BadRequest(new AuthFailedResponse{Errors = errors});
+            }
+            var authResponse = await _accountService.ChangePassword(request);
+
+            if (!authResponse.Success)
+            {
+                return BadRequest(new AuthFailedResponse {Errors = authResponse.Errors});
+            }
+            return Ok(new AuthSuccessResponse
+            {
+                Token = authResponse.Token,
+                RefreshToken = authResponse.RefreshToken
+            });
+        }
+        
+        [HttpPost(ApiRoutes.Account.Refresh)]
+        public async Task<IActionResult> Refresh([FromBody] RefreshTokenRequest request)
+        {
+            var authResponse = await _accountService.RefreshTokenAsync(request);
+
+            if (!authResponse.Success)
+            {
+                return BadRequest(new AuthFailedResponse {Errors = authResponse.Errors});
+            }
+            return Ok(new AuthSuccessResponse
+            {
+                Token = authResponse.Token,
+                RefreshToken = authResponse.RefreshToken
+            });
         }
     }
 }

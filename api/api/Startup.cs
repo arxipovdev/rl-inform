@@ -38,8 +38,22 @@ namespace api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(op => op.UseSqlite(ConnectionString));
-            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<DataContext>();
+            services.AddIdentity<User, IdentityRole>()
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<DataContext>();
             services.AddSingleton(JwtOptions);
+            
+            var tokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(JwtOptions.Secret)),
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                RequireExpirationTime = false,
+                ValidateLifetime = true
+            };
+            services.AddSingleton(tokenValidationParameters);
+            
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -48,16 +62,10 @@ namespace api
             }).AddJwtBearer(options =>
             {
                 options.SaveToken = true;
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(JwtOptions.Secret)),
-                    ValidateIssuer = false,
-                    ValidateAudience = false,
-                    RequireExpirationTime = false,
-                    ValidateLifetime = true
-                };
+                options.TokenValidationParameters = tokenValidationParameters;
             });
+            services.AddAuthorization();
+            services.AddCors();
             services.AddControllers();
             services.AddSwaggerGen(options =>
             {
@@ -81,6 +89,7 @@ namespace api
                     {{openApiSecurityScheme, new List<string>()}};
                 options.AddSecurityRequirement(openApiSecurityRequirement);
             });
+            
             services.AddScoped<IAccountService, AccountService>();
         }
 
@@ -95,6 +104,7 @@ namespace api
             app.UseSwaggerUI(op => op.SwaggerEndpoint(SwaggerOptions.Endpoint, SwaggerOptions.Description));
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseCors(builder => builder.AllowAnyOrigin());
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });

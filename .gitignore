@@ -3,4 +3,6 @@ api/obj/
 api/packages/
 api/riderModule.iml
 api/_ReSharper.Caches/
-api/.idea/
+api/.idea
+.DS_Store
+api/.DS_Store
