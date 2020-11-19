@@ -27,17 +27,40 @@
       <change afterPath="$PROJECT_DIR$/.idea/.idea.api/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/api.sln" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/api/Contracts/V1/ApiRoutes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/Contracts/V1/Requests/CreatePostRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Contracts/V1/Requests/CreateRoleRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Contracts/V1/Requests/CreateUserRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Contracts/V1/Requests/RefreshTokenRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Contracts/V1/Requests/UpdatePasswordRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Contracts/V1/Requests/UpdateRoleRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Contracts/V1/Requests/UpdateUserRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Contracts/V1/Requests/UserLoginRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Contracts/V1/Requests/UserRegistrationRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Contracts/V1/Responses/AuthFailedResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Contracts/V1/Responses/AuthSuccessResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Contracts/V1/Responses/ErrorsResponse.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/api/Contracts/V1/Responses/PostResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/Controllers/V1/PostController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Contracts/V1/Responses/UserResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Contracts/V1/RoleValid.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Controllers/V1/AccountController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Controllers/V1/RoleController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Controllers/V1/UserController.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/api/Data/DataContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/Models/Post.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Extension/GeneralExtension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Migrations/20201117073410_Init.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Migrations/20201117073410_Init.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Migrations/DataContextModelSnapshot.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Models/AuthResult.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Models/RefreshToken.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/api/Models/User.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Options/JwtOptions.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/api/Options/SwaggerOptions.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/api/Program.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/api/Properties/launchSettings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Services/AccountService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/Services/IAccountService.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/api/Startup.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/api/api.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/app.db" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/api/appsettings.Development.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/api/appsettings.json" afterDir="false" />
     </list>
@@ -51,29 +74,64 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2B503979-E64A-4C2B-9FE4-DB11985D8993/1/SwaggerGenOptionsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F6E2B5B0-E1C5-48E6-8938-3C4D9638B3A4/6/IdentityUserRole.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F6E2B5B0-E1C5-48E6-8938-3C4D9638B3A4/1/IdentityRole.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/BBCBF8DA-5BE8-4B5E-BC00-B9D8FFC1ED33/A/AuthorizeAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F6E2B5B0-E1C5-48E6-8938-3C4D9638B3A4/3/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/015F951A-AB19-4B4A-B0F1-25A75926E601/47/ProtectedPersonalDataAttribute.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/api/Program.cs" />
-        <option value="$PROJECT_DIR$/api/Properties/launchSettings.json" />
         <option value="$PROJECT_DIR$/api/Controllers/TestController.cs" />
         <option value="$PROJECT_DIR$/api/Options/SwaggerOptions.cs" />
         <option value="$PROJECT_DIR$/api/appsettings.Development.json" />
-        <option value="$PROJECT_DIR$/api/Startup.cs" />
-        <option value="$PROJECT_DIR$/api/appsettings.json" />
         <option value="$PROJECT_DIR$/api/Contracts/ApiRoutes.cs" />
         <option value="$PROJECT_DIR$/api/Controllers/V1/TestController.cs" />
-        <option value="$PROJECT_DIR$/api/Models/Post.cs" />
         <option value="$PROJECT_DIR$/api/Contracts/V1/Responses/PostResponse.cs" />
         <option value="$PROJECT_DIR$/api/Contracts/V1/Requests/CreatePostRequest.cs" />
-        <option value="$PROJECT_DIR$/api/Contracts/V1/ApiRoutes.cs" />
+        <option value="$PROJECT_DIR$/api/Properties/launchSettings.json" />
+        <option value="$PROJECT_DIR$/api/Contracts/V1/Responses/RegistrationResponse.cs" />
+        <option value="$PROJECT_DIR$/api/Contracts/V1/Responses/AuthFailedResponse.cs" />
         <option value="$PROJECT_DIR$/api/Controllers/V1/PostController.cs" />
+        <option value="$PROJECT_DIR$/api/Contracts/V1/Requests/UserLoginRequest.cs" />
+        <option value="$PROJECT_DIR$/api/Models/Post.cs" />
+        <option value="$PROJECT_DIR$/api/Options/JwtOptions.cs" />
+        <option value="$PROJECT_DIR$/api/Contracts/V1/Responses/AuthSuccessResponse.cs" />
+        <option value="$PROJECT_DIR$/api/Models/AuthResult.cs" />
+        <option value="$PROJECT_DIR$/api/Models/RefreshToken.cs" />
+        <option value="$PROJECT_DIR$/api/Services/IUserService.cs" />
+        <option value="$PROJECT_DIR$/api/Services/UserService.cs" />
+        <option value="$PROJECT_DIR$/api/Contracts/V1/Responses/ResponseData.cs" />
+        <option value="$PROJECT_DIR$/api/Contracts/V1/Responses/ErrorsResponse.cs" />
+        <option value="$PROJECT_DIR$/api/Contracts/V1/Responses/UserResponse.cs" />
+        <option value="$PROJECT_DIR$/api/Models/UserRole.cs" />
         <option value="$PROJECT_DIR$/api/Data/DataContext.cs" />
         <option value="$PROJECT_DIR$/api/Models/User.cs" />
+        <option value="$PROJECT_DIR$/api/Models/Role.cs" />
+        <option value="$PROJECT_DIR$/api/Controllers/RoleController.cs" />
+        <option value="$PROJECT_DIR$/api/Contracts/V1/Requests/CreateRoleRequest.cs" />
+        <option value="$PROJECT_DIR$/api/Contracts/V1/Requests/UpdateRoleRequest.cs" />
+        <option value="$PROJECT_DIR$/api/Contracts/V1/RoleValid.cs" />
+        <option value="$PROJECT_DIR$/api/Contracts/V1/Requests/UpdateUserRequest.cs" />
+        <option value="$PROJECT_DIR$/api/Contracts/V1/Requests/CreateUserRequest.cs" />
+        <option value="$PROJECT_DIR$/api/Controllers/V1/RoleController.cs" />
+        <option value="$PROJECT_DIR$/api/Program.cs" />
+        <option value="$PROJECT_DIR$/api/Services/IAccountService.cs" />
+        <option value="$PROJECT_DIR$/api/Contracts/V1/Requests/UpdatePasswordRequest.cs" />
+        <option value="$PROJECT_DIR$/api/Startup.cs" />
+        <option value="$PROJECT_DIR$/api/Contracts/V1/ApiRoutes.cs" />
+        <option value="$PROJECT_DIR$/api/Controllers/V1/AccountController.cs" />
+        <option value="$PROJECT_DIR$/api/Contracts/V1/Requests/RefreshTokenRequest.cs" />
+        <option value="$PROJECT_DIR$/api/appsettings.json" />
+        <option value="$PROJECT_DIR$/api/Extension/GeneralExtension.cs" />
+        <option value="$PROJECT_DIR$/api/Services/AccountService.cs" />
+        <option value="$PROJECT_DIR$/api/Contracts/V1/Requests/UserRegistrationRequest.cs" />
+        <option value="$PROJECT_DIR$/api/Controllers/V1/UserController.cs" />
       </list>
     </option>
   </component>
@@ -86,11 +144,16 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="sqlite" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34879866" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.29991716" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys_rider" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.api">
@@ -134,13 +197,23 @@
       <option name="presentableId" value="Default" />
       <updated>1605109319300</updated>
       <workItem from="1605109325851" duration="2000" />
-      <workItem from="1605109441824" duration="9095000" />
+      <workItem from="1605109441824" duration="12425000" />
+      <workItem from="1605163831207" duration="4256000" />
+      <workItem from="1605168277575" duration="170000" />
+      <workItem from="1605168492159" duration="1178000" />
+      <workItem from="1605169831121" duration="1677000" />
+      <workItem from="1605171651116" duration="1814000" />
+      <workItem from="1605496575822" duration="15794000" />
+      <workItem from="1605518651195" duration="48791000" />
+      <workItem from="1605679773509" duration="20818000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -154,24 +227,161 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="284" y="102" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605502426072">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="284" y="102" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1605502426072" />
+    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1605165091530" />
     <state x="360" y="133" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1605152166894">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="360" y="133" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1440.900@0.0.1440.900" timestamp="1605152166894" />
+    <state x="554" y="223" key="#xdebugger.evaluate" timestamp="1605686043991">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="554" y="223" key="#xdebugger.evaluate/0.0.1280.800@0.0.1280.800" timestamp="1605686043991" />
+    <state width="554" height="464" key="DebuggerActiveHint" timestamp="1605788113976">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="554" height="464" key="DebuggerActiveHint/0.0.1280.800@0.0.1280.800" timestamp="1605788113976" />
+    <state width="476" height="424" key="DebuggerActiveHint/0.23.1280.730@0.23.1280.730" timestamp="1605680815744" />
+    <state width="1238" height="181" key="GridCell.Tab.0.bottom" timestamp="1605789377881">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1605789377881" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1605163890579" />
+    <state width="1238" height="181" key="GridCell.Tab.0.bottom/0.23.1280.730@0.23.1280.730" timestamp="1605788004040" />
+    <state width="1238" height="181" key="GridCell.Tab.0.center" timestamp="1605789377880">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1605789377880" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1605163890578" />
+    <state width="1238" height="181" key="GridCell.Tab.0.center/0.23.1280.730@0.23.1280.730" timestamp="1605788004039" />
+    <state width="1238" height="181" key="GridCell.Tab.0.left" timestamp="1605789377880">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1605789377880" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1605163890577" />
+    <state width="1238" height="181" key="GridCell.Tab.0.left/0.23.1280.730@0.23.1280.730" timestamp="1605788004038" />
+    <state width="1238" height="181" key="GridCell.Tab.0.right" timestamp="1605789377881">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1605789377881" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1605163890579" />
+    <state width="1238" height="181" key="GridCell.Tab.0.right/0.23.1280.730@0.23.1280.730" timestamp="1605788004040" />
+    <state width="1238" height="181" key="GridCell.Tab.1.bottom" timestamp="1605789377883">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.1.bottom/0.0.1280.800@0.0.1280.800" timestamp="1605789377883" />
+    <state width="1238" height="181" key="GridCell.Tab.1.bottom/0.23.1280.730@0.23.1280.730" timestamp="1605789074654" />
+    <state width="1238" height="181" key="GridCell.Tab.1.center" timestamp="1605789377882">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.1.center/0.0.1280.800@0.0.1280.800" timestamp="1605789377882" />
+    <state width="1238" height="181" key="GridCell.Tab.1.center/0.23.1280.730@0.23.1280.730" timestamp="1605789074651" />
+    <state width="1238" height="181" key="GridCell.Tab.1.left" timestamp="1605789377882">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.1.left/0.0.1280.800@0.0.1280.800" timestamp="1605789377882" />
+    <state width="1238" height="181" key="GridCell.Tab.1.left/0.23.1280.730@0.23.1280.730" timestamp="1605789074650" />
+    <state width="1238" height="181" key="GridCell.Tab.1.right" timestamp="1605789377883">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.1.right/0.0.1280.800@0.0.1280.800" timestamp="1605789377883" />
+    <state width="1238" height="181" key="GridCell.Tab.1.right/0.23.1280.730@0.23.1280.730" timestamp="1605789074651" />
+    <state width="1238" height="181" key="GridCell.Tab.2.bottom" timestamp="1605789377885">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.2.bottom/0.0.1280.800@0.0.1280.800" timestamp="1605789377885" />
+    <state width="1238" height="181" key="GridCell.Tab.2.bottom/0.23.1280.730@0.23.1280.730" timestamp="1605788003731" />
+    <state width="1238" height="181" key="GridCell.Tab.2.center" timestamp="1605789377884">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.2.center/0.0.1280.800@0.0.1280.800" timestamp="1605789377884" />
+    <state width="1238" height="181" key="GridCell.Tab.2.center/0.23.1280.730@0.23.1280.730" timestamp="1605788003730" />
+    <state width="1238" height="181" key="GridCell.Tab.2.left" timestamp="1605789377883">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.2.left/0.0.1280.800@0.0.1280.800" timestamp="1605789377883" />
+    <state width="1238" height="181" key="GridCell.Tab.2.left/0.23.1280.730@0.23.1280.730" timestamp="1605788003729" />
+    <state width="1238" height="181" key="GridCell.Tab.2.right" timestamp="1605789377885">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.2.right/0.0.1280.800@0.0.1280.800" timestamp="1605789377885" />
+    <state width="1238" height="181" key="GridCell.Tab.2.right/0.23.1280.730@0.23.1280.730" timestamp="1605788003730" />
+    <state width="1238" height="181" key="GridCell.Tab.3.bottom" timestamp="1605789377887">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.3.bottom/0.0.1280.800@0.0.1280.800" timestamp="1605789377887" />
+    <state width="1238" height="181" key="GridCell.Tab.3.bottom/0.23.1280.730@0.23.1280.730" timestamp="1605788003734" />
+    <state width="1238" height="181" key="GridCell.Tab.3.center" timestamp="1605789377886">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.3.center/0.0.1280.800@0.0.1280.800" timestamp="1605789377886" />
+    <state width="1238" height="181" key="GridCell.Tab.3.center/0.23.1280.730@0.23.1280.730" timestamp="1605788003732" />
+    <state width="1238" height="181" key="GridCell.Tab.3.left" timestamp="1605789377886">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.3.left/0.0.1280.800@0.0.1280.800" timestamp="1605789377886" />
+    <state width="1238" height="181" key="GridCell.Tab.3.left/0.23.1280.730@0.23.1280.730" timestamp="1605788003732" />
+    <state width="1238" height="181" key="GridCell.Tab.3.right" timestamp="1605789377887">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.3.right/0.0.1280.800@0.0.1280.800" timestamp="1605789377887" />
+    <state width="1238" height="181" key="GridCell.Tab.3.right/0.23.1280.730@0.23.1280.730" timestamp="1605788003733" />
+    <state width="1238" height="181" key="GridCell.Tab.4.bottom" timestamp="1605789377889">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.4.bottom/0.0.1280.800@0.0.1280.800" timestamp="1605789377889" />
+    <state width="1238" height="181" key="GridCell.Tab.4.bottom/0.23.1280.730@0.23.1280.730" timestamp="1605788003736" />
+    <state width="1238" height="181" key="GridCell.Tab.4.center" timestamp="1605789377888">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.4.center/0.0.1280.800@0.0.1280.800" timestamp="1605789377888" />
+    <state width="1238" height="181" key="GridCell.Tab.4.center/0.23.1280.730@0.23.1280.730" timestamp="1605788003735" />
+    <state width="1238" height="181" key="GridCell.Tab.4.left" timestamp="1605789377887">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.4.left/0.0.1280.800@0.0.1280.800" timestamp="1605789377887" />
+    <state width="1238" height="181" key="GridCell.Tab.4.left/0.23.1280.730@0.23.1280.730" timestamp="1605788003734" />
+    <state width="1238" height="181" key="GridCell.Tab.4.right" timestamp="1605789377888">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.4.right/0.0.1280.800@0.0.1280.800" timestamp="1605789377888" />
+    <state width="1238" height="181" key="GridCell.Tab.4.right/0.23.1280.730@0.23.1280.730" timestamp="1605788003735" />
+    <state x="442" y="97" key="RiderGenerateDialog" timestamp="1605595262445">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="442" y="97" key="RiderGenerateDialog/0.0.1280.800@0.0.1280.800" timestamp="1605595262445" />
+    <state x="204" y="78" key="SettingsEditor" timestamp="1605689831010">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="204" y="78" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1605689831010" />
+    <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1605172863102" />
+    <state width="498" height="445" key="SwitcherDM" timestamp="1605503531575">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="498" height="445" key="SwitcherDM/0.0.1280.800@0.0.1280.800" timestamp="1605503531575" />
     <state x="335" y="68" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1605151721970">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="335" y="68" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1605151721970" />
+    <state x="312" y="32" width="655" height="735" key="find.popup" timestamp="1605781034336">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="312" y="32" width="655" height="735" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1605781034336" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1605151655880">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="600" height="428" key="javadoc.popup/0.0.1440.900@0.0.1440.900" timestamp="1605151655880" />
-    <state x="383" y="194" width="672" height="678" key="search.everywhere.popup" timestamp="1605157068511">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="340" y="172" width="672" height="603" key="search.everywhere.popup" timestamp="1605666662066">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
+    <state x="340" y="172" width="672" height="603" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1605666662066" />
     <state x="383" y="194" width="672" height="678" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1605157068511" />
   </component>
 </project>

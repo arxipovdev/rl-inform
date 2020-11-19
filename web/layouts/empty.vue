@@ -1,10 +1,11 @@
 <template>
-  <v-row justify="center" align="center">
-  </v-row>
+  <v-app>
+    <nuxt />
+  </v-app>
 </template>
 
 <script>
-
 export default {
+  name: 'Empty'
 }
 </script>

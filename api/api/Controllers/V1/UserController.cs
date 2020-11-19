@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using api.Contracts.V1;
 using api.Contracts.V1.Requests;
 using api.Contracts.V1.Responses;
+using api.Extension;
 using api.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -12,7 +13,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace api.Controllers.V1
 {
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin,Editor")]
     public class UserController : Controller
     {
         private readonly UserManager<User> _userManager;
@@ -20,7 +20,7 @@ namespace api.Controllers.V1
         {
             _userManager = userManager;
         }
-
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin,Editor")]
         [HttpGet(ApiRoutes.Users.GetAll)]
         public async Task<IActionResult> Get()
         {
@@ -35,6 +35,7 @@ namespace api.Controllers.V1
             return Ok(response);
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin,Editor")]
         [HttpGet(ApiRoutes.Users.Get)]
         public async Task<IActionResult> Get(string userId)
         {
@@ -56,6 +57,7 @@ namespace api.Controllers.V1
             return Ok(response);
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin,Editor")]
         [HttpPost(ApiRoutes.Users.Create)]
         public async Task<IActionResult> Post([FromBody] CreateUserRequest request)
         {
@@ -98,6 +100,7 @@ namespace api.Controllers.V1
             return Ok(response);
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin,Editor,Customer")]
         [HttpPut(ApiRoutes.Users.Update)]
         public async Task<IActionResult> Put(string userId, [FromBody] UpdateUserRequest request)
         {
@@ -118,12 +121,18 @@ namespace api.Controllers.V1
             user.Email = request.Email;
             await _userManager.UpdateAsync(user);
 
-            var userRoles = await _userManager.GetRolesAsync(user);
-            var addedRoles = request.Roles.Except(userRoles);
-            var removedRoles = userRoles.Except(request.Roles);
+            var currentUser = await HttpContext.GetUserAsync();
+            var isAdmin = currentUser.Roles.Contains("Admin");
+            var isEditor = currentUser.Roles.Contains("Editor");
+            if (isAdmin || isEditor)
+            {
+                var userRoles = await _userManager.GetRolesAsync(user);
+                var addedRoles = request.Roles.Except(userRoles);
+                var removedRoles = userRoles.Except(request.Roles);
 
-            await _userManager.AddToRolesAsync(user, addedRoles);
-            await _userManager.RemoveFromRolesAsync(user, removedRoles);
+                await _userManager.AddToRolesAsync(user, addedRoles);
+                await _userManager.RemoveFromRolesAsync(user, removedRoles);
+            }
 
             var response = new UserResponse
             {

@@ -104,7 +104,12 @@ namespace api
             app.UseSwaggerUI(op => op.SwaggerEndpoint(SwaggerOptions.Endpoint, SwaggerOptions.Description));
             app.UseHttpsRedirection();
             app.UseRouting();
-            app.UseCors(builder => builder.AllowAnyOrigin());
+            app.UseCors(builder =>
+            {
+                builder.WithOrigins("http://localhost:3000")
+                    .AllowAnyHeader()
+                    .WithMethods("GET", "POST", "PUT", "DELETE");
+            });
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });

@@ -1,10 +1,12 @@
+import dotenv from 'dotenv'
 import colors from 'vuetify/es5/util/colors'
+import ru from 'vuetify/es5/locale/ru'
+
+dotenv.config()
 
 export default {
-  // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
 
-  // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: '%s - app',
     title: 'app',
@@ -18,41 +20,77 @@ export default {
     ]
   },
 
-  // Global CSS (https://go.nuxtjs.dev/config-css)
+  loading: { color: '#1d70ff' },
+
   css: [
+    '@/assets/style.scss'
   ],
 
-  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
   ],
 
-  // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
-  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
-    // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify'
   ],
 
-  // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/dotenv',
+    '@nuxtjs/auth'
   ],
 
-  // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  auth: {
+    localStorage: false,
+    strategies: {
+      local: {
+        scheme: 'refresh',
+        endpoints: {
+          login: { url: '/account/login', method: 'post', propertyName: 'token', altProperty: 'refreshToken' },
+          refresh: { url: '/account/refresh', method: 'post', propertyName: 'token', altProperty: 'refreshToken' },
+          logout: { url: '/auth/logout', method: 'post' },
+          user: { url: '/account/user', method: 'get' }
+        },
+        user: {
+          property: 'user'
+        },
+        token: {
+          property: 'token',
+          type: 'Bearer',
+          maxAge: 60
+        },
+        refreshToken: {
+          property: 'refreshToken',
+          maxAge: 60 * 60 * 24 * 30
+        }
+      }
+    },
+    redirect: {
+      login: '/login',
+      logout: '/login',
+      callback: '/login',
+      home: '/'
+    }
+  },
 
-  // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
+  axios: {
+    baseURL: process.env.API_URL
+  },
+
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    defaultAssets: {
+      icons: 'fa'
+    },
+    lang: {
+      locales: { ru },
+      current: 'ru'
+    },
     theme: {
-      dark: true,
+      light: true,
       themes: {
-        dark: {
+        light: {
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
@@ -65,7 +103,6 @@ export default {
     }
   },
 
-  // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
   }
 }

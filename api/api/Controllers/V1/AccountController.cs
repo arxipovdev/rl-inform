@@ -3,7 +3,10 @@ using System.Threading.Tasks;
 using api.Contracts.V1;
 using api.Contracts.V1.Requests;
 using api.Contracts.V1.Responses;
+using api.Extension;
 using api.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers.V1
@@ -95,6 +98,14 @@ namespace api.Controllers.V1
                 Token = authResponse.Token,
                 RefreshToken = authResponse.RefreshToken
             });
+        }
+
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [HttpGet(ApiRoutes.Account.User)]
+        public async Task<IActionResult> CurrentUser()
+        {
+            var user = await HttpContext.GetUserAsync();
+            return Ok(new {user});
         }
     }
 }

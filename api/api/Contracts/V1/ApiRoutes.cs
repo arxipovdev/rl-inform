@@ -30,6 +30,7 @@ namespace api.Contracts.V1
             public const string Register = Base + "/account/register";
             public const string ChangePassword = Base + "/account/changepassword";
             public const string Refresh = Base + "/account/refresh";
+            public const string User = Base + "/account/user";
         }
     }
 }

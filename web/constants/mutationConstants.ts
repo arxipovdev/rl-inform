@@ -1,0 +1,8 @@
+export const SET_DRAWER = 'SET_DRAWER'
+export const SET_NOTIFY = 'SET_NOTIFY'
+export const SET_ENV = 'SET_ENV'
+export const HOST = 'HOST'
+export const PORT = 'PORT'
+export const NODE_ENV = 'NODE_ENV'
+export const API_URL = 'API_URL'
+export const BASE_URL = 'BASE_URL'

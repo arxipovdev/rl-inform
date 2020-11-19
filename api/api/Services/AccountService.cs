@@ -18,6 +18,7 @@ namespace api.Services
     public class AccountService : IAccountService
     {
         private const string DefaultRole = "Customer";
+        private const int ExpiryRefreshToken = 1;
         private readonly UserManager<User> _userManager;
         private readonly JwtOptions _jwtOptions;
         private readonly TokenValidationParameters _tokenValidationParameters;
@@ -203,7 +204,7 @@ namespace api.Services
                 new Claim(JwtRegisteredClaimNames.Sub, user.Email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                new Claim("roles", string.Join(",", roles)),
+                new Claim("roles", string.Join(",", roles.OrderBy(x => x))),
                 new Claim("id", user.Id)
             };
 
@@ -222,7 +223,7 @@ namespace api.Services
                 JwtId = token.Id,
                 UserId = user.Id,
                 CreateAt = DateTime.UtcNow,
-                Expiry = DateTime.UtcNow.AddMonths(6)
+                Expiry = DateTime.UtcNow.AddMonths(ExpiryRefreshToken) // Expiry refreshToken 1 month
             };
 
             await _context.RefreshTokens.AddAsync(refreshToken);
