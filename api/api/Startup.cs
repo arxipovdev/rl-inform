@@ -106,7 +106,9 @@ namespace api
             app.UseRouting();
             app.UseCors(builder =>
             {
-                builder.WithOrigins("http://localhost:3000")
+                builder
+                    .AllowAnyOrigin()
+                    // .WithOrigins("http://localhost:3000")
                     .AllowAnyHeader()
                     .WithMethods("GET", "POST", "PUT", "DELETE");
             });
