@@ -93,6 +93,7 @@ namespace api.Controllers.V1
             return Ok(response);
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         [HttpDelete(ApiRoutes.Roles.Delete)]
         public async Task<ActionResult> Delete(string roleId)
         {

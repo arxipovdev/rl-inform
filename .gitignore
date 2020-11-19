@@ -7,3 +7,14 @@ api/.idea/
 api/api/.idea/
 .DS_Store
 api/api/.DS_Store
+
+.vscode/
+api/.idea/
+api/bin/
+api/obj/
+api//packages/
+api/riderModule.iml
+api//_ReSharper.Caches/
+
+web/.idea/
+web/node_modules/
