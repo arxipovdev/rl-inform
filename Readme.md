@@ -13,5 +13,6 @@ yarn dev
 
 Start api
 ```
+cd api/api
 dotnet run
 ```
