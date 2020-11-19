@@ -1,8 +1,9 @@
-api/bin/
-api/obj/
-api/packages/
-api/riderModule.iml
-api/_ReSharper.Caches/
-api/.idea
+api/api/bin/
+api/api/obj/
+api/api/packages/
+api/api/riderModule.iml
+api/api/_ReSharper.Caches/
+api/.idea/
+api/api/.idea/
 .DS_Store
-api/.DS_Store
+api/api/.DS_Store

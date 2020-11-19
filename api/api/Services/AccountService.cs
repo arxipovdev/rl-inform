@@ -70,7 +70,8 @@ namespace api.Services
 
         public async Task<AuthResult> LoginAsync(UserLoginRequest request)
         {
-            var user = await _userManager.FindByEmailAsync(request.Email);
+            var user = await _userManager.FindByEmailAsync(request.Email) ?? 
+                       await _userManager.FindByNameAsync(request.Email);
 
             if (user is null)
             {
